@@ -767,6 +767,347 @@ section {
     display: block;
 }
 
+
+/* utility classes */
+.hidden { display: none !important; }
+
+/* POS page styles */
+.pos-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background: var(--light-bg);
+    border-bottom: 1px solid var(--border-color);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.pos-topbar .pos-left { font-weight: bold; font-size: 1.2rem; }
+.pos-topbar .pos-center input {
+    width: 300px;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+.pos-topbar .pos-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+.pos-topbar .status-pill {
+    background: var(--accent-gold);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.pos-main {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+.pos-products, .pos-cart, .pos-checkout {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    padding: 1.5rem;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.pos-categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.pos-categories .category-chip {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.pos-categories .category-chip.active {
+    background: var(--accent-gold);
+    color: white;
+    border-color: var(--accent-gold);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+    gap: 1rem;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+.product-card .price {
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+.product-card button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+}
+
+.pos-cart .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+.pos-cart .cart-item .qty-controls {
+    display: flex;
+    gap: 0.2rem;
+}
+.pos-cart .cart-item button {
+    padding: 0.2rem 0.4rem;
+}
+
+.pos-cart .totals {
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.pos-cart input.promo {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.pos-cart .cart-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pos-checkout .payment-methods {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.pos-checkout .payment-method {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+}
+.pos-checkout .charge-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.pos-checkout .charge-btn.disabled {
+    background: var(--border-color);
+    cursor: not-allowed;
+}
+
+.pos-checkout .receipt {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+.pos-checkout .receipt .item {
+    display: flex;
+    justify-content: space-between;
+}
+.pos-checkout .receipt-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Stock Management Styles */
+.stock-mgmt-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: white;
+    color: var(--dark-text);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.stock-mgmt-btn:hover {
+    background: var(--accent-gold);
+    color: white;
+    border-color: var(--accent-gold);
+}
+
+.stock-badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 0.4rem 0;
+}
+.stock-badge.in-stock {
+    background: #d4edda;
+    color: #155724;
+}
+.stock-badge.low-stock {
+    background: #fff3cd;
+    color: #856404;
+}
+.stock-badge.out-of-stock {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.product-card button:disabled {
+    background: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.inventory-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+.inventory-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.inventory-item:last-child {
+    border-bottom: none;
+}
+.inventory-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.inventory-info strong {
+    margin-bottom: 0.2rem;
+}
+.inventory-info span {
+    font-size: 0.85rem;
+    color: var(--light-text);
+}
+.inventory-controls {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+.stock-btn {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+.stock-btn:hover {
+    background: var(--accent-gold);
+    color: white;
+    border-color: var(--accent-gold);
+}
+.stock-input {
+    width: 60px;
+    padding: 0.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+}
+.inventory-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.inventory-buttons button {
+    flex: 1;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.inventory-buttons #save-inventory {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+.inventory-buttons #save-inventory:hover {
+    background: #218838;
+}
+.inventory-buttons #close-inventory {
+    background: white;
+    color: var(--dark-text);
+}
+.inventory-buttons #close-inventory:hover {
+    background: var(--light-bg);
+}
+
+#pos-modal-body h3 {
+    margin-top: 0;
+    color: var(--primary-brown);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .pos-main { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .pos-main { grid-template-columns: 1fr; }
+    .pos-topbar .pos-center input { width: 100%; }
+}
+
+/* POS modal styling & utilities */
+.hidden { display: none !important; }
+.pos-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+.pos-modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+.pos-modal-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
 /* ========================================
    FOOTER
    ======================================== */
